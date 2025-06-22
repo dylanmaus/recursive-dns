@@ -7,5 +7,10 @@ bash debian-setup.sh
 
 ## Run
 ```
-docker compose up
+docker compose up --detach
+```
+
+## Shutdown
+```
+docker compose down
 ```
