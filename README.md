@@ -2,7 +2,7 @@
 
 ## Setup
 ```
-bash debian-setup.sh
+bash setup.sh
 ```
 
 ## Run
