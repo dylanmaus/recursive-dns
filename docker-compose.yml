@@ -10,7 +10,7 @@ services:
     environment:
       TZ: "America/New York"
       FTLCONF_webserver_api_password: "password"
-      FTLCONF_LOCAL_IPV4: 192.168.1.2
+      FTLCONF_LOCAL_IPV4: 192.168.99.3
       FTLCONF_dns_listeningMode: "all"
       PIHOLE_DNS_: 172.21.200.3#5353 # forward to unbound
     volumes:
@@ -29,7 +29,7 @@ services:
       - "5353:53/tcp"
       - "5353:53/udp"
     volumes:
-      - ./unbound:/opt/unbound/etc/unbound
+      - ./unbound.conf:/opt/unbound/etc/unbound.conf:ro
     networks:
       pihole_network:
         ipv4_address: 172.21.200.3

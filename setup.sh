@@ -4,10 +4,6 @@
 sudo apt update -y
 sudo apt upgrade -y
 
-## Unbound config
-mkdir unbound
-cp unbound.conf unbound/
-
 ## Pihole config
 mkdir -p pihole/etc-pihole
 cp pihole.toml pihole/etc-pihole
