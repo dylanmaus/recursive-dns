@@ -15,7 +15,7 @@ services:
       PIHOLE_DNS_: 172.21.200.3#5353 # forward to unbound
     volumes:
       - ./pihole/etc-pihole:/etc/pihole
-      - ./pihole/etc-dnsmasq.d:/etc/dnsmasq.d
+      - ./pihole.toml:/etc/pihole/pihole.toml:rw
     networks:
       pihole_network:
         ipv4_address: 172.21.200.2
@@ -29,7 +29,8 @@ services:
       - "5353:53/tcp"
       - "5353:53/udp"
     volumes:
-      - ./unbound.conf:/opt/unbound/etc/unbound.conf:ro
+      - ./unbound:/opt/unbound/etc/unbound
+      - ./unbound.conf:/opt/unbound/etc/unbound/unbound.conf:rw
     networks:
       pihole_network:
         ipv4_address: 172.21.200.3
