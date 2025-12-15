@@ -29,11 +29,17 @@ services:
       - "5353:53/tcp"
       - "5353:53/udp"
     volumes:
-      - ./unbound:/opt/unbound/etc/unbound
+      - ./unbound:/opt/unbound/etc/unbound:rw
       - ./unbound.conf:/opt/unbound/etc/unbound/unbound.conf:rw
+      - ./root.hints:/opt/unbound/etc/unbound/root.hints:rw
     networks:
       pihole_network:
         ipv4_address: 172.21.200.3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
     restart: unless-stopped
 
 networks:
